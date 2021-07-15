@@ -20,6 +20,14 @@ const Cart: React.FC<Props> = ({ cartItems, addToCart, removeFromCart }) => {
           removeFromCart={removeFromCart}
         />
       ))}
+      <div id="total">
+        <h4>
+          Total: $
+          {cartItems
+            .reduce((ack, item) => ack + item.price * item.amount, 0)
+            .toFixed(2)}
+        </h4>
+      </div>
     </Wrapper>
   );
 };
